@@ -56,7 +56,6 @@ export function login() {
 // 7. Listar posts en interfaz de administrador
 export function listarPostsAdmin() {
     cy.visit(URL + '/ghost/#/posts');
-    return cy.get('.gh-posts-list-item');
 }
 
 // 8. Logout
