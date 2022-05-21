@@ -1,17 +1,18 @@
-import pool from '../pool.json';
 import { URL, LOGIN_EMAIL, LOGIN_PASSWORD } from "../env";
 
 describe('Escenario 1:', function () {
 
-  it('Al loggearse y crear un post, este está en la interfaz de admin', function () {
-    login();
-    cy.wait(500);
-    cy.screenshot('01-login')
-    crearPost(pool.caso_0.titulo, pool.caso_0.contenido);
-    cy.wait(500);
-    cy.screenshot('02-crearPost')
-    listarPostsAdmin().should('include.text', pool.caso_0.titulo)
-    cy.screenshot('03-listarPostsAdmin')
+  it('Al loggearse y crear un post, este está en la interfaz de admin', () => {
+    cy.fixture('pool.json').then((pool) => {
+      login();
+      cy.wait(500);
+      cy.screenshot('01-login')
+      crearPost(pool.caso_0.titulo, pool.caso_0.contenido);
+      cy.wait(500);
+      cy.screenshot('02-crearPost')
+      listarPostsAdmin().should('include.text', pool.caso_0.titulo)
+      cy.screenshot('03-listarPostsAdmin')
+    })
   })
 })
 
