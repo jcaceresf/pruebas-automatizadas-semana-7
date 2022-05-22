@@ -17,9 +17,8 @@ function crearPost(title, body) {
   cy.get("a[href='#/editor/post/']").then($links => {
     cy.wrap($links[0]).click({ force: true });
     cy.wait(500);
-    cy.get("textarea[placeholder='Post title']").invoke('val', '')
-    cy.get("div[contenteditable='true']").invoke('val', '')
-    cy.wait(1000)
+    cy.get("textarea[placeholder='Post title']").type(title, { force: true })
+    cy.get("div[contenteditable='true']").type(body, { force: true })
     cy.get("header section").children('.gh-publishmenu').click().then(() => {
       cy.get(".gh-publishmenu-button").click().then(() => {
         cy.get(".modal-footer").children('.gh-btn-black').click()
