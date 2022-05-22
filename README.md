@@ -16,6 +16,10 @@ También es necesario contar con Node.js y npm.
 
 Tener la aplicación Ghost instalada y corriendo en el entorno local, las pruebas se ejecutaron sobre la versión 4.41.3
 
+# Descripción de escenarios 
+
+https://github.com/jcaceresf/pruebas-automatizadas-semana-7/wiki/Descripci%C3%B3n-de-escenarios
+
 # Instrucciones para correr las pruebas 
 ## Escenarios con generación de datos aleatorios a priori 
 ###### *(cypress/integration/a_priori_cases)*
