@@ -15,9 +15,9 @@ describe('Escenario 7-02:', function () {
 
             login();
             cy.wait(1000);
-            eliminarTodosLosPost();
-            cy.wait(1000);
             crearPost(pool.caso_2.titulo, pool.caso_2.contenido);
+            cy.wait(1000);
+            eliminarTodosLosPost();
             cy.wait(1000);
             crearPost(pool.caso_2.titulo, pool.caso_2.contenido);
             cy.wait(1000);
