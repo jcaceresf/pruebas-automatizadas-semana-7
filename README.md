@@ -21,6 +21,9 @@ Tener la aplicación Ghost instalada y corriendo en el entorno local, las prueba
 https://github.com/jcaceresf/pruebas-automatizadas-semana-7/wiki/Descripci%C3%B3n-de-escenarios
 
 # Instrucciones para correr las pruebas 
+
+Configurar el archivo env.js con los datos locales de su aplicación incluyendo el puerto, usuario y password.
+
 ## Escenarios con generación de datos aleatorios a priori 
 ###### *(cypress/integration/a_priori_cases)*
 Para crear un nuevo pool de datos aleatorios, ejecutar en la raíz del proyecto: 
