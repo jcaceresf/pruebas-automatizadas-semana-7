@@ -3,16 +3,16 @@ const fs = require('fs')
 
 const poolRawData = {
   caso_0: {
-    titulo: faker.random.alpha({ count: 1, bannedChars: [] }),
-    contenido: faker.random.alpha({ count: 1, bannedChars: [] })
+    titulo: faker.random.alphaNumeric(10),
+    contenido: faker.random.alphaNumeric(10)
   },
   caso_1: {
-    titulo: faker.random.alpha({ count: 20, bannedChars: [] }),
-    contenido: faker.random.alpha({ count: 20, bannedChars: [] })
+    titulo: faker.random.numeric(20, { bannedDigits: [] }),
+    contenido: faker.random.numeric(20, { bannedDigits: [] })
   },
   caso_2: {
-    titulo: faker.random.alpha({ count: 50, bannedChars: [] }),
-    contenido: faker.random.alpha({ count: 50, bannedChars: [] })
+    titulo: faker.random.words(30),
+    contenido: faker.random.words(30)
   },
   caso_3: {
     titulo: faker.random.alpha({ count: 100, bannedChars: [] }),

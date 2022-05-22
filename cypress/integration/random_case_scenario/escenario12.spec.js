@@ -15,8 +15,8 @@ import {
 
 describe('Publicar post', function () {
   it('login - publicar post - ver detalle post', function () {
-    let postTitle = faker.random.alpha(100)
-    let postBody = faker.lorem.lines(3)
+    let postTitle = faker.database.mongodbObjectId()
+    let postBody = faker.database.mongodbObjectId()
 
     cy.wait(1000);
     login();
