@@ -1,15 +1,18 @@
 import { URL, LOGIN_EMAIL, LOGIN_PASSWORD } from "../env";
+import generatePool from '../poolGenerator.fn';
 
 describe('Escenario 1:', function () {
 
-  it('Al loggearse y crear un post, este está en la interfaz de admin', () => {
-    cy.fixture('pool.json').then((pool) => {
-      login();
-      cy.wait(500);
-      crearPost(pool.caso_0.titulo, pool.caso_0.contenido);
-      cy.wait(500);
-      listarPostsAdmin().should('include.text', pool.caso_0.titulo)
-    })
+  it('Al loggearse y crear un post, este está en la interfaz de admin', function () {
+    const pool = generatePool();
+    login();
+    cy.wait(500);
+    cy.screenshot('01-login')
+    crearPost(pool?.caso_1?.titulo, pool?.caso_1?.contenido);
+    cy.wait(500);
+    cy.screenshot('02-crearPost')
+    listarPostsAdmin().should('include.text', pool?.caso_1?.titulo)
+    cy.screenshot('03-listarPostsAdmin')
   })
 })
 
@@ -17,8 +20,8 @@ function crearPost(title, body) {
   cy.get("a[href='#/editor/post/']").then($links => {
     cy.wrap($links[0]).click({ force: true });
     cy.wait(500);
-    cy.get("textarea[placeholder='Post title']").invoke('val', '')
-    cy.get("div[contenteditable='true']").invoke('val', '')
+    cy.get("textarea[placeholder='Post title']").type(title, { force: true })
+    cy.get("div[contenteditable='true']").type(body, { force: true })
     cy.wait(1000)
     cy.get("header section").children('.gh-publishmenu').click().then(() => {
       cy.get(".gh-publishmenu-button").click().then(() => {

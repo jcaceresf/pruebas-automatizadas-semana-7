@@ -30,7 +30,7 @@ export function listarPostsBlog() {
 // 4. Ver detalle de un post
 export function verPostBlog() {
     cy.visit(URL);
-    cy.get('.post-card-title').first().click({force:true});
+    cy.get('.post-card-title').first().click({ force: true });
     cy.wait(1000);
 }
 
@@ -98,7 +98,7 @@ export function cambiarAccesoPost() {
     cy.wait(1000);
     cy.get('.gh-btn-black').click();
     cy.wait(1000);
-    cy.get('.gh-editor-back-button').click({force: true});
+    cy.get('.gh-editor-back-button').click({ force: true });
 }
 
 // 11. Agregar imagen al post
@@ -152,10 +152,10 @@ export function cambiarPassword() {
 export function eliminarTodosLosPost() {
     cy.visit(URL + '/ghost/#/posts');
     cy.wait(2000);
-    
+
     cy.get('body').then($body => {
         if ($body.find('.gh-post-list-title').length) {
-            cy.get('.gh-post-list-title').each((items) => { 
+            cy.get('.gh-post-list-title').each((items) => {
                 cy.get('.gh-post-list-title').first().click();
                 cy.wait(1000);
                 cy.get('.settings-menu-toggle').click();
