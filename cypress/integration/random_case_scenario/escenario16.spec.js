@@ -4,8 +4,8 @@ import { faker } from "@faker-js/faker";
 describe('Escenario 16:', function () {
 
   it('Al eliminar todos los posts, se crea uno nuevo y se publica', function () {
-    let postTitle = faker.random.word();
-    let postBody = faker.random.words(12);
+    let postTitle = faker.random.words(30);
+    let postBody = faker.random.words(50);
 
     login();
     cy.wait(1000);
@@ -21,7 +21,7 @@ describe('Escenario 16:', function () {
     cy.wait(1000)
     crearPost(postTitle, postBody);
     cy.wait(1000)
-    publicarPost(postTitle, postBody);
+    publicarPost();
     cy.wait(1000);
   })
 })

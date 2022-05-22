@@ -15,8 +15,8 @@ import {
 
 describe('Publicar post', function () {
   it('login - publicar post - ver detalle post', function () {
-    let postTitle = faker.random.alpha(10)
-    let postBody = faker.lorem.lines()
+    let postTitle = faker.random.alpha(100)
+    let postBody = faker.lorem.lines(3)
 
     cy.wait(1000);
     login();

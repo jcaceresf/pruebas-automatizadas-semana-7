@@ -5,8 +5,8 @@ import { crearPost, login } from "../functions";
 describe('Escenario 13:', function () {
 
   it('crear post y verificar que la cantidad de posts mostrados a los usuarios es igual o menor a la cantidad de posts mostrados en el tablero de administrador', function () {
-    let postTitle = faker.random.alpha(10)
-    let postBody = faker.lorem.lines()
+    let postTitle = faker.random.alpha(50)
+    let postBody = faker.lorem.lines(20)
 
     login();
     cy.wait(1000);
