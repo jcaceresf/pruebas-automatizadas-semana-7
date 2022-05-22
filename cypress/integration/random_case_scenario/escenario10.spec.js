@@ -5,21 +5,17 @@ describe('Escenario 10:', function () {
   it('Al eliminar un post, este desaparece para los usuarios', function () {
     listarPostsBlog();
     cy.wait(500);
-    cy.screenshot('01-listarPostsBlog')
     cy.get('h2:first').then($title => {
       const title = $title.text();
 
       login();
       cy.wait(1000);
       listarPostsAdmin();
-      cy.screenshot('02-listarPostsAdmin')
       eliminarPost(title);
       cy.wait(1000);
-      cy.screenshot('02-listarPostsAdmin')
       cy.visit(URL + '/ghost/#/signout')
       cy.wait(1000);
       listarPostsBlog();
-      cy.screenshot('03-listarPostsBlog')
       cy.get(`h2:contains("${title}")`).should('have.length', 0)
     })
   })

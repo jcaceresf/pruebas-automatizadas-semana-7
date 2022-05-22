@@ -7,12 +7,9 @@ describe('Escenario 1:', function () {
     const pool = generatePool();
     login();
     cy.wait(500);
-    cy.screenshot('01-login')
     crearPost(pool?.caso_0?.titulo, pool?.caso_0?.contenido);
     cy.wait(500);
-    cy.screenshot('02-crearPost')
     listarPostsAdmin().should('include.text', pool?.caso_0?.titulo)
-    cy.screenshot('03-listarPostsAdmin')
   })
 })
 
